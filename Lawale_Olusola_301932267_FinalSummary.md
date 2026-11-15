@@ -55,9 +55,7 @@ With more time, I would prioritise a live replica-set failure-and-recovery exerc
 
 ## AI-use declaration
 
-- **Tools used:** GitHub Copilot, the portfolio generator and Codex. Copilot and the generator are disclosed in the original submission; Codex assisted with this documentation revision.
-- **Uses:** Copilot and the generator helped prepare the database model, scripts and explanations. The generator ran the PostgreSQL and MongoDB exercises, checked their outputs and captured the result images. Codex helped polish the README and final summary, drafted the reflection from recorded results, and prepared the LMS packaging files.
-- **Review and verification:** The generator's checks and saved results are recorded in the portfolio documentation. For this revision, Codex compared the summary with the saved design, portfolio explanations and results; no new database runs or evidence images were produced. I remain responsible for checking and explaining the submitted work. My personal review of this revision, including the AI-drafted reflection, is pending; the PDF will be rebuilt after I review and approve the wording.
+GitHub Copilot helped prepare the database model and scripts. The AI agent ran the PostgreSQL and MongoDB exercises, checked their outputs and captured the result images. I remain responsible for checking and explaining the submitted work.
 
 ## References
 

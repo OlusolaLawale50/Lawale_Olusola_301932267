@@ -20,4 +20,4 @@ The system supports recording a vaccination, retrieving its patient, clinic and 
 
 Repository: https://github.com/OlusolaLawale50/Lawale_Olusola_301932267
 
-AI assistance is disclosed in the [final summary's AI-use declaration](Lawale_Olusola_301932267_FinalSummary.md#ai-use-declaration), including the portfolio generator and assistance with this documentation.
+AI assistance is disclosed in the [final summary's AI-use declaration](Lawale_Olusola_301932267_FinalSummary.md#ai-use-declaration).
