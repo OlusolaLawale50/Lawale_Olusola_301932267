@@ -1,7 +1,13 @@
-# Olusola Lawale — MIT 8103
+# Public Health Vaccination Programme
 
-Student ID: 301932267
+Olusola Lawale · Student ID 301932267
 
-Public health vaccination programme. Store patients, clinics, vaccines and vaccination records using fictional data. Each vaccination record links to one patient, one clinic and one vaccine. Record vaccination date and dose number. Require a positive dose number and prevent duplicate records for the same patient, vaccine and dose number. Use MongoDB for vaccination processing events with embedded snapshots of the linked patient, clinic and vaccine. Keep the scope to these four tables and simple record-level constraints.
+The portfolio uses fictional records for Public Health Vaccination Programme.
 
-The portfolio is being generated. Completed stages will appear in the commit history.
+- [Portfolio 1](portfolio-1-database-design/)
+- [Portfolio 2](portfolio-2-query-optimisation/)
+- [Portfolio 3](portfolio-3-transactions-concurrency/)
+- [Portfolio 4](portfolio-4-nosql/)
+- [Portfolio 5](portfolio-5-distributed-cloud/)
+
+[Final summary](Lawale_Olusola_301932267_FinalSummary.md) · [PDF](Lawale_Olusola_301932267_FinalSummary.pdf)
