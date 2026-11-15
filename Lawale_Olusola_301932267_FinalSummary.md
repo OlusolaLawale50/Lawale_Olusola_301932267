@@ -4,7 +4,7 @@
 
 ## Case study
 
-My case study is Public Health Vaccination Programme. I designed the database for fictional clinic staff recording vaccinations. and fictional programme analysts reviewing vaccination activity., with separate tables named patients, clinics, vaccines and vaccination_records. It supports these operations: record a vaccination with its patient, clinic, vaccine, date, and dose number; review vaccination records with patient, clinic, and vaccine details; summarise records by clinic and vaccine.
+My case study is the Public Health Vaccination Programme, a fictional system for recording vaccinations and reviewing programme activity. Its users are clinic staff recording vaccinations and programme analysts reviewing the records. Separate tables named patients, clinics, vaccines and vaccination_records store patient details, clinic locations, vaccine products, vaccination dates and dose numbers. The system supports recording a vaccination with its patient, clinic and vaccine; reviewing the linked details; and summarising records by clinic and vaccine.
 
 ## Portfolio 1: Database Design and Modelling
 
@@ -18,7 +18,7 @@ Figure 1. Tables, keys and relationships. PK: primary key; FK: foreign key; UK: 
 
 ## Portfolio 2: Query Processing and Optimisation
 
-I ran four SQL queries against the sample records. The join returned 1 rows and included Ari with North Fictional Clinic. For the index comparison, I used 20,000 separate performance rows. The median lookup time changed from 2.138 ms to 0.182 ms. Both phases returned the same records. The measured plan used the new index. These timings apply to this lookup and environment.
+I ran four SQL queries against the sample records. The join returned 1 row and included Ari with North Fictional Clinic. For the index comparison, I used 20,000 separate performance rows. The median lookup time changed from 2.138 ms to 0.182 ms. Both phases returned the same records. The measured plan used the new index. These timings apply to this lookup and environment.
 
 ## Portfolio 3: Transactions and Concurrency
 
@@ -43,11 +43,19 @@ I proposed three MongoDB replica members across separate failure zones. The disc
 
 ## Individual reflection
 
-I kept patients, clinics, vaccines, vaccination_records in separate tables so their details could be maintained without repeating them in every related record. A vaccination record's dose_number must be greater than zero. The constraint tests check this alongside the required values and record links. One issue illustrated by the two-session exercise is that both sessions can read the same value before either update is committed. Locking the row before reading preserves both increments. The index comparison also shows why I need to check the execution plan as well as the final answer: the same result can require different amounts of database work.
+My main design lesson is that separating patients, clinics, vaccines and vaccination records reduces repeated details, but the relationships still need enforceable rules. The ten recorded constraint rejections illustrate how foreign keys, required values, positive dose numbers and uniqueness protect the model.
+
+For queries, I take from Portfolio 2 that a correct result alone does not explain efficiency. The saved comparison reports median times of 2.138 ms before indexing and 0.182 ms afterwards on 20,000 separate performance rows. The plan changes from a sequential scan to bitmap scans, but still includes a sort. I should therefore explain the actual plan and its limits rather than assume an index removes every cost.
+
+The concurrency example makes a different risk clear: two sessions can each perform a valid update yet lose an increment when both calculate from the same earlier value. The recorded counter finishes at 2 without locking and 3 with SELECT FOR UPDATE. My lesson is to protect the read-and-update sequence when correctness depends on shared state.
+
+The MongoDB snapshots also show a trade-off: an event is convenient to read, but later relational changes do not automatically refresh its copied details. My evidence has limits: the relational sample is small, the generator produced the recorded exercise outputs and images, and Portfolio 5 is a proposed design without a live failover test.
+
+With more time, I would prioritise a live replica-set failure-and-recovery exercise to test the availability discussion against observed behaviour.
 
 ## AI-use declaration
 
-I used GitHub Copilot and the portfolio generator to help prepare the database model, scripts and explanations. The generator ran the PostgreSQL and MongoDB exercises, checked their outputs and captured the result images.  I remain responsible for checking and explaining the submitted work.
+GitHub Copilot helped prepare the database model and scripts. The AI agent ran the PostgreSQL and MongoDB exercises, checked their outputs and captured the result images. I remain responsible for checking and explaining the submitted work.
 
 ## References
 
